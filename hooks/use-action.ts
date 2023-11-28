@@ -1,3 +1,5 @@
+/** @format */
+
 import { useState, useCallback } from "react";
 
 import { ActionState, FieldErrors } from "@/lib/create-safe-action";
@@ -26,9 +28,7 @@ export const useAction = <TInput, TOutput>(action: Action<TInput, TOutput>, opti
           return;
         }
 
-        if (result.fieldErrors) {
-          setFieldErrors(result.fieldErrors);
-        }
+        setFieldErrors(result.fieldErrors);
 
         if (result.error) {
           setError(result.error);
