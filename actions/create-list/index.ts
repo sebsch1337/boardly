@@ -43,7 +43,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 		});
 	} catch (error) {
 		return {
-			error: "Failed to update",
+			error: "Failed to create",
 		};
 	}
 
