@@ -136,8 +136,6 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
 		}
 	};
 
-	console.log(orderedData);
-
 	return (
 		<DragDropContext onDragEnd={onDragEnd}>
 			<Droppable
