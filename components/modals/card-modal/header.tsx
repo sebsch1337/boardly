@@ -1,8 +1,9 @@
 "use client";
 
-import { ElementRef, useRef, useState } from "react";
+import { toast } from "sonner";
 import { Layout } from "lucide-react";
 import { useParams } from "next/navigation";
+import { ElementRef, useRef, useState } from "react";
 
 import { CardWithList } from "@/types";
 import { useAction } from "@/hooks/use-action";
@@ -10,7 +11,6 @@ import { updateCard } from "@/actions/update-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useQueryClient } from "@tanstack/react-query";
 import { FormInput } from "@/components/form/form-input";
-import { toast } from "sonner";
 
 interface HeaderProps {
 	data: CardWithList;
@@ -24,6 +24,10 @@ export const Header = ({ data }: HeaderProps) => {
 		onSuccess: (data) => {
 			queryClient.invalidateQueries({
 				queryKey: ["card", data.id],
+			});
+
+			queryClient.invalidateQueries({
+				queryKey: ["card-logs", data.id],
 			});
 
 			toast.success(`Renamed to ${data.title}`);
