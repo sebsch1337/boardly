@@ -19,7 +19,20 @@ export const createAuditLog = async (props: Props) => {
 			throw new Error("User not found");
 		}
 
-		const {};
+		const { entityId, entityType, entityTitle, action } = props;
+
+		await db.auditLog.create({
+			data: {
+				orgId,
+				entityId,
+				entityType,
+				entityTitle,
+				action,
+				userId: user.id,
+				userImage: user?.imageUrl,
+				userName: user?.firstName + " " + user?.lastName,
+			},
+		});
 	} catch (error) {
 		console.log("[AUDIT_LOG_ERROR]", error);
 	}
