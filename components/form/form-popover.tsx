@@ -1,16 +1,19 @@
 "use client";
 
-import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
-import { FormInput } from "./form-input";
-import { FormSubmit } from "./form-submit";
-import { useAction } from "@/hooks/use-action";
-import { createBoard } from "@/actions/create-board";
 import { toast } from "sonner";
-import { FormPicker } from "./form-picker";
+import { X } from "lucide-react";
 import { ElementRef, useRef } from "react";
 import { useRouter } from "next/navigation";
+
+import { useAction } from "@/hooks/use-action";
+import { Button } from "@/components/ui/button";
+import { useProModal } from "@/hooks/use-pro-modal";
+import { createBoard } from "@/actions/create-board";
+import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+
+import { FormInput } from "./form-input";
+import { FormSubmit } from "./form-submit";
+import { FormPicker } from "./form-picker";
 
 interface FormPopoverProps {
 	children: React.ReactNode;
@@ -20,6 +23,7 @@ interface FormPopoverProps {
 }
 
 export const FormPopover = ({ children, side = "bottom", align, sideOffset = 0 }: FormPopoverProps) => {
+	const proModal = useProModal();
 	const router = useRouter();
 	const closeRef = useRef<ElementRef<"button">>(null);
 
@@ -31,6 +35,7 @@ export const FormPopover = ({ children, side = "bottom", align, sideOffset = 0 }
 		},
 		onError: (error) => {
 			toast.error(error);
+			proModal.onOpen();
 		},
 	});
 
