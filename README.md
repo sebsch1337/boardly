@@ -12,6 +12,8 @@ This full stack Trello clone is based on Next.js 14, Server Actions, React, Pris
 
 Main focus is on using server actions instead of API calls for the database communication. This project helped me to understand the concept of server actions and evaluates the developer experience, stability and performance of this new approach. Additionally, i learned how to use an external payment provider to enable the implementation of pro features.
 
+Credits to [Antonio Erdeljac](https://github.com/AntonioErdeljac/next13-trello/) for his awesome tutorials.
+
 ## Overview
 
 Boardly is a simple kanban board tool for collaboration.
@@ -49,7 +51,8 @@ Boardly is a simple kanban board tool for collaboration.
 
 ### Create .env File
 
-`NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+```
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=
@@ -64,7 +67,8 @@ STRIPE_API_KEY=
 
 NEXT_PUBLIC_APP_URL=
 
-STRIPE_WEBHOOK_SECRET=`
+STRIPE_WEBHOOK_SECRET=
+```
 
 ### Setup Prisma
 
