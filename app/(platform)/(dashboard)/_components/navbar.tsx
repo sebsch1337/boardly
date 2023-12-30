@@ -12,7 +12,10 @@ export const Navbar = () => {
 			<MobileSidebar />
 			<div className="flex items-center gap-x-4">
 				<div className="hidden md:flex">
-					<Logo />
+					<Logo
+						width={30}
+						height={30}
+					/>
 				</div>
 				<FormPopover
 					align="start"

@@ -6,17 +6,23 @@ import { cn } from "@/lib/utils";
 
 const headingFont = localFont({ src: "../public/fonts/font.woff2" });
 
-export const Logo = () => {
+interface LogoProps {
+	hideText?: boolean;
+	width: number;
+	height: number;
+}
+
+export const Logo = ({ hideText = false, width, height }: LogoProps) => {
 	return (
 		<Link href="/">
-			<div className="hover:opacity-75 transition items-center gap-x-2 flex">
+			<div className="hover:opacity-75 transition flex items-center gap-x-2 ">
 				<Image
 					src="/logo.svg"
-					height={30}
-					width={30}
+					width={width}
+					height={height}
 					alt="Logo"
 				/>
-				<p className={cn("text-lg text-neutral-700 pb-1", headingFont.className)}>Boardly</p>
+				<p className={cn("text-lg text-neutral-700", headingFont.className, hideText && "hidden")}>Boardly</p>
 			</div>
 		</Link>
 	);
