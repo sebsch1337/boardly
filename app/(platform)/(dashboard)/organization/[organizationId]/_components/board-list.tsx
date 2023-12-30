@@ -48,8 +48,9 @@ export const BoardList = async () => {
 					</Link>
 				))}
 				<FormPopover
+					align="center"
 					sideOffset={10}
-					side="right"
+					side="bottom"
 				>
 					<div
 						role="button"
